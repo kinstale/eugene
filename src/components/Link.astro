@@ -1,0 +1,63 @@
+---
+// library imports
+import { Icon } from 'astro-icon';
+
+interface Props {
+  label: string;
+  href: string;
+  role: 'link' | 'button';
+  icon?: {
+    name: string
+    side: "left" | "right";
+  };
+  classes?: string;
+}
+
+const {
+  label,
+  href,
+  role,
+  icon,
+  classes,
+  ...rest
+} = Astro.props as Props;
+---
+
+<a
+  href={href}
+  role={role}
+  class:list={
+  [
+    "group inline-flex justify-center items-center gap-1 w-fit rounded-sm transition ease-in-out duration-300 cursor-pointer underline underline-offset-4 decoration-brand hover:text-dark hover:underline-offset-2",
+    classes,
+  ]
+  }
+  {...rest}
+>
+
+{
+  icon && icon.side === "left" && (
+    <Icon name={icon.name} class="w-6"/>
+  )
+}
+
+<span class=""> {label}</span>
+
+{
+  icon && icon.side === "right" && (
+    <Icon name={icon.name} class="w-5" />
+  )
+}
+
+</a>
+
+<style>
+
+  .dark {
+    @apply text-offwhite;
+  }
+
+.tiny {
+  @apply text-fs-tiny;
+}
+</style>

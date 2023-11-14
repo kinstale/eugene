@@ -1,0 +1,91 @@
+---
+
+// Import components
+import { Image } from "astro:assets"
+import Button from './Button.astro'
+import Link from './Link.astro'
+
+interface Props {
+   indicator?: string,
+   image?: {
+      src: string,
+      alt: string
+    },
+    title: string,
+    subtitle?: string,
+    description: string,
+    btn?: "Button" | "link" 
+    href:string
+    classes?: string;
+}
+
+const {
+    indicator,
+    image,
+    title,
+    subtitle,
+    description,
+    btn,
+    href,
+    classes,
+    ...rest
+} = Astro.props as Props;
+
+---
+
+<article 
+class:list={[
+    "service__card bg-offwhite text-center md:text-left rounded-2xl overflow-hidden shadow-2xl shadow-brand/20",
+    classes,
+    ]}
+{...rest}
+>
+<div class="flex flex-col overflow-hidden cursor-pointer">
+
+  {indicator && 
+    <small>{indicator}</small>
+  }
+
+{
+  image && (
+    <div class="flex-shrink-0 h-1/3">
+      <Image 
+        src={image.src}
+        alt={image.alt}
+        width={384}
+        height={320}
+        aspect-ratio="3.2"
+        format= webp
+        class="object-cover w-full h-48"
+      />
+    </div>
+  )
+}
+
+    <div class="flex flex-col justify-between flex-1 p-6">
+      <div class="flex-1">
+        <h3 class="headline headline-4">{title}</h3>
+        <p class="mt-3">{description}</p>
+      </div>
+
+      {
+        btn && (
+        <div class="flex items-center mt-6">
+          <div class="flex-shrink-0">
+            <Link
+                role='link'
+                label="en savoir plus"
+                href= {href}
+                icon={{
+                name:'arrow-right',
+                side: 'right'
+                }}
+                classes='link'
+            />
+          </div>
+        </div>
+        )
+      }
+
+    </div>
+</article>

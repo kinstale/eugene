@@ -1,0 +1,30 @@
+---
+// library imports
+import { Icon } from 'astro-icon';
+
+interface Props {
+    label: string;
+    classes?: string;
+}
+
+const {
+    label,
+    classes,
+    ...rest
+} = Astro.props as Props;
+
+---
+
+<li class="flex space-x-3">
+    <!-- Solid Check -->
+    <Icon name="check-circle" class="w-6 rounded-full font-light text-brand bg-brand/20"/>
+
+    <span class="text-fs-base font-medium">
+        {label}
+    </span>
+        
+</li>
+
+<style>
+    
+</style>

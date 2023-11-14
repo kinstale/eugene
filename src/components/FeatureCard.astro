@@ -1,0 +1,37 @@
+---
+// library imports
+import { Icon } from 'astro-icon';
+
+interface Props {
+   
+    title: string;
+    description: string;
+    icon?:
+        {
+            name: string
+        };
+    classes?: string;
+}
+
+const {
+    title,
+    description,
+    icon,
+    classes,
+    ...rest
+} = Astro.props as Props;
+
+---
+<article class="flex gap-x-2 gap-y-6 w-full h-full rounded-2xl overflow-hidden p-6 shadow-2xl shadow-brand/20">
+    {
+        icon && (
+          <Icon name={icon.name} class="feature__card-icon flex-shrink-0 w-8 h-8 text-brand" />
+        )
+      }
+    <div>
+      <div>
+        <span class="feature__card-title block headline headline-4 text-offwhite">{title}</span>
+        <p class="feature__card-description text-offwhite">{description}</p>
+      </div>
+    </div>
+  </article>

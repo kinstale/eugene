@@ -1,0 +1,69 @@
+---
+// library imports
+import { Icon } from 'astro-icon';
+
+interface Props {
+    type: 'button' | 'submit',
+    role: 'link' | 'button';
+    label: string;
+    href: string;
+    icon?:
+        {
+            name: string
+            side: "left" | "right";
+        };
+    classes?: string;
+}
+
+const {
+    type,
+    role,
+    label,
+    href,
+    icon,
+    classes,
+    ...rest
+} = Astro.props as Props;
+---
+
+<a
+    {type}
+    aria-roledescription="link"
+    role={role}
+    href={href}
+    class:list={[
+        "group px-4 py-3 inline-flex justify-center items-center gap-1 text-fs-base rounded-full border border-brand-600 focus:outline-none focus:ring-2 focus:ring-offset-2 ease-in-out duration-300 cursor-pointer",
+        classes,
+        ]}
+    {...rest}
+    >
+        
+    {label}
+    <Icon name={icon?.name} class="icon w-6 group-hover"/>
+</a>
+
+<style>
+    .sm {
+        @apply px-2 py-1;
+    }
+    .isFilled{
+        @apply
+        text-dark bg-brand
+        hover:bg-brand/90
+        focus:ring-brand focus:bg-brand;
+    }
+    .isFilled .icon{
+        @apply text-dark;
+    }
+
+    .isGhost{
+        @apply 
+        text-dark bg-offwhite
+        hover:text-dark hover:bg-brand/90
+        focus:ring-brand focus:bg-brand;
+    }
+    .group-hover{
+        @apply
+        hover:text-dark;
+    }
+</style>

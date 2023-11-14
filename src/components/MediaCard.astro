@@ -1,0 +1,46 @@
+---
+// Import components
+import { Image } from "astro:assets"
+
+interface Props {
+    url: string;
+    thumbnails: {
+        highres: {
+            url: string;
+        }
+    }
+    title: string,
+    description: string,
+    classes?: string;
+}
+
+const {
+    url,
+    thumbnails,
+    title,
+    description,
+    classes,
+    ...rest
+} = Astro.props as Props;
+
+---
+<article class="group grid h-full w-full justify-center rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 bg-white text-gray">
+   <div class="flex h-full w-full items-center justify-center">
+        <iframe
+            width="560"
+            height="315"
+            src={"url"}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="flex flex-col justify-between flex-1 p-6">
+        <div class="flex-1">
+          <h3 class="headline headline-4 mb-3">{title}</h3>
+          <p class="">{description}</p>
+        </div>
+  
+      </div>
+</article>

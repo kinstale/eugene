@@ -1,0 +1,642 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+//import components
+import Main from '../components/Main.astro';
+import Button from '@components/Button.astro';
+import Link from '@components/Link.astro';
+import ChecklistItem from '@components/ChecklistItem.astro';
+
+// import collections
+import { getCollection } from "astro:content";
+
+//fetching collection pricing
+const pricing = await getCollection('pricing', ({ data }) => {
+  return data.category === "entreprise";
+});
+
+---
+
+<Layout title="MCL | Offre entreprise" >
+    <Main>
+        <section class="overflow-hidden mt-36 pb-20">
+			<div class="container mx-auto">
+				<div class="grid md:grid-cols-2 xl:grid-cols-12 items-center gap-8 xl:gap-10 2xl:gap-12">
+					<div class="w-full px-4 xl:col-span-7">
+						<div class="-mx-3 flex items-center sm:-mx-4">
+							<div class="w-full px-3 sm:px-4 xl:w-1/2">
+								<div class="py-3 sm:py-4">
+									<Image 
+										src="/images/entreprise/team.jpg"
+										alt="un travail d'équipe"
+										width={576}
+										height={576}
+										class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+									/>
+								</div>
+								<div class="py-3 sm:py-4">
+									<Image 
+										src="/images/entreprise/massage-uda_1.jpg"
+										alt="massage assis"
+										width={576}
+										height={576}
+										class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+									/>
+								</div>
+							</div>
+							<div class="w-full px-3 sm:px-4 xl:w-1/2">
+								<div class="relative z-10 my-4">
+									<Image 
+										src="/images/entreprise/sophrologie_5.jpg"
+										alt="séance de sophrologie en groupe et en plein air"
+										width={576}
+										height={576}
+										class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+									/>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="w-full px-4 xl:col-start-8 xl:col-span-6">
+						<div class="mt-10 lg:mt-0">
+							<span class="tagline">
+								Le bien-être au travail
+							</span>
+							<h1 class="headline headline-h1">
+								MCL, l'offre relaxation pour le bien-être de vos collaborateurs
+							</h1>
+							<p class="mb-8">
+								Devenez une entreprise ou il fait bon travailler en faisant de MCL votre référent bien-être.
+							</p>
+							<p class="mb-12">
+								Face au défi que représente la QVT(qualité de vie au travail), les entreprises doivent savoir répondre aux besoins de leurs salariés. À cet égard, la santé physique et mentale sont deux priorités à intégrer ! 
+							</p>
+							<div class="cta-wrapper">
+								<Button
+									type="button"
+									role="link"
+									label="Nous contacter"
+									href="mailto:bonjour@moncorpslibere.fr"
+									icon={{
+										name:"ph:envelope",
+										side: "right"
+									}}
+									classes={"isFilled"}
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- why? -->
+		<section class="section">
+			<div class="container">
+				<!-- Grid -->
+				<div class="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
+					<div class="lg:col-span-3">
+						<p class="tagline">Il fait bon travailler dans votre entreprise</p>
+						<h2 class="headline headline-h2">Développer le bien-être au travail</h2>
+						<p class="mt-3 text-lg">Vous soucier de vos salaries n'aura que des retombées positives pour votre société.</p>
+					</div>
+			
+					<div class="grid sm:grid-cols-2 gap-6 lg:gap-8 lg:col-span-4 mt-10 lg:mt-0">
+						<article class="w-full flex flex-col bg-brand/20 border border-brand rounded-2xl shadow-2xl shadow-brand/20 p-4 md:p-5">
+							<h4 class="headline headline-h4">
+								Améliorer la qualite de vie au travail
+							</h4>
+							
+							<p class="mt-2">
+								Permet d'augmenter la productivité de vos employés en limitant les burn-out.
+							</p>
+							
+						</article>
+						<article class="-full flex flex-col bg-brand/20 border border-brand rounded-2xl shadow-2xl shadow-brand/20 p-4 md:p-5">
+							<h3 class="headline headline-h4">
+							Renforcer votre marque employeur
+							</h3>
+							
+							<p class="mt-2">
+								Proposer des séances de relaxation en entreprise peut faire la différence pour attirer et fidéliser les talents. 
+							</p>
+						</article>
+					</div>
+				<!-- End Grid -->
+				</div>
+			</div>
+		</section>
+
+		<!-- services -->
+		<section class="section bg-brand-500/20">
+			<div class="container">
+				<div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+					<div class="groupTitle space-y-1">
+						<span class="tagline">Améliorer la qualité de vie au travail</span>
+						<h2 class="headline headline-h2">Notre offre entreprise</h2>
+					</div>
+					<div class="subheadline-wrapper w-full">
+						<p class="sub__headline text-base">Vos collaborateurs sont précieux</p>
+					</div>
+				</div>
+				
+				<div class="services grid gap-14">
+					<!-- offre massage -->
+					<div class="md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap:16 ">
+						
+						<div class="flex md:justify-center">
+							<Image
+								class="rounded-2xl overflow-hidden shadow-2xl shadow-brand/20dow-brand"
+								width={576}
+								height={576}
+								src="/images/entreprise/massage-uda_1.jpg"
+								alt="Image Description"
+							>
+						</div>
+						
+					
+						<div class="mt-5 sm:mt-10 lg:mt-0">
+							<div class="space-y-6 sm:space-y-8">
+							<!-- Title -->
+							<div class="space-y-2 md:space-y-4">
+								<h3 class="headline headline-h3">
+									Massage sur chaise
+								</h3>
+								<p>
+									Le massage sur chaise répond aux exigences du monde moderne. Il se donne sur les vêtements. En peu de temps, la magie opère, la détente s’installe.
+								</p>
+								<p>
+									La prestation offerte est un massage bien-être de détente qui peut être donné n’importe où : En entreprise, au bord d'une plage, lors d'une conférence, lors d'un évènement sportif, où tout autre lieu atypique.
+								</p>
+							</div>
+							<!-- End Title -->
+					
+							<!-- List -->
+							<ul role="list" class="space-y-2 sm:space-y-4">
+								<ChecklistItem
+									label='Relaxe ou dynamise'
+								/>
+								<ChecklistItem
+									label='Soulage les tensions musculaires'
+								/>
+								<ChecklistItem
+									label='Améliore la concentration'
+								/>
+					
+							</ul>
+							<!-- End List -->
+							</div>
+						</div>
+					</div>
+
+					<!-- offre sophrologie -->
+					<div class="grid md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap:16 ">
+
+						<div class="mt-5 sm:mt-10 lg:mt-0 order-2 md:order-1">
+							<div class="space-y-6 sm:space-y-8">
+							<!-- Title -->
+							<div class="space-y-2 md:space-y-4">
+								<h3 class="headline headline-h3">
+									Sophrologie en groupe
+								</h3>
+								<p class="">
+									La sophrologie est adaptable. Elle agit en prévention du burn-out ou pour réguler un stress existant. Elle offre aux collaborateurs une méthode de relaxation et permet un ressérement des liens.
+								</p>
+								
+							</div>
+							<!-- End Title -->
+					
+							<!-- List -->
+							<ul role="list" class="space-y-2 sm:space-y-4">
+								<ChecklistItem 
+									label='Aide à la gestion du stress'
+								/>
+					
+								<ChecklistItem
+									label='Soulage les tensions musculaires'
+								/>
+								<ChecklistItem
+									label='Améliore la concentration'
+								/>
+								<ChecklistItem
+									label='Soulage les tensions musculaires'
+								/>
+								<ChecklistItem
+									label='Crée une cohésion de groupe'
+								/>
+							</ul>
+							<!-- End List -->
+							</div>
+						</div>
+						<div class="flex md:justify-center order-1 md:order-2">
+							<Image
+								class="rounded-2xl aspect-square object-cover object-left-top rounded-2xl overflow-hidden shadow-2xl shadow-brand/20dow-brand"
+								width={576}
+								height={576}
+								src="/images/entreprise/sophrologie_1.webp"
+								alt="Image Description">
+						</div>
+					</div>
+
+					<!--offre Luxson -->
+					<div class="md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap:16 ">
+						<div class="flex md:justify-center">
+							<Image
+								class="rounded-2xl aspect-square object-cover object-center rounded-2xl overflow-hidden shadow-2xl shadow-brand/20dow-brand"
+								width={576}
+								height={576}
+								src="/images/entreprise/luxson_3.jpg"
+								alt="Image Description"
+							>
+						</div>
+						<div class="mt-5 sm:mt-10 lg:mt-0">
+							<div class="space-y-6 sm:space-y-8">
+							<!-- Title -->
+							<div class="space-y-2 md:space-y-4">
+								<h3 class="headline headline-h3">
+									Luxson - PSIO
+								</h3>
+								<p>
+									Le Luxson combine la relaxation par la voix à la stimulation par la lumière.
+									Elle agit en prévention de la dépression ou pour réguler un trouble du sommeil.
+									Elle offre aux collaborateurs un repos des méninges afin de pouvoir repartir de plus belle.
+								</p>
+								<p>
+									La prestation offerte est une séance de Luxson qui peut être donnée, au calme, dans un petit espace.
+								</p>
+							</div>
+							<!-- End Title -->
+					
+							<!-- List -->
+							<ul role="list" class="space-y-2 sm:space-y-4">
+								<ChecklistItem 
+									label='Repose les méninges'
+								/>
+								<ChecklistItem
+									label='Aide à combattre stress, angoisse, anxiété...'
+								/>
+								<ChecklistItem
+									label='Facilite le sommeil'
+								/>
+							</ul>
+							<!-- End List -->
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>			
+		</section>
+
+		<!-- pricing -->
+		<section id="pricing_" class="section pattern ">
+			<div class="container">
+				<div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+					<div class="groupTitle space-y-1">
+						<span class="tagline">Améliorer la qualité de vie au travail</span>
+						<h2 class="headline headline-h2">Notre gamme de prix</h2>
+					</div>
+					<div class="subheadline-wrapper w-full">
+						<p class="sub__headline text-fs-base">Tous les tarifs sont h.t et la tva est de 8.5%</p>
+					</div>
+				</div>
+				<div class="grid-wrapper w-full grid justify-center mt-16">
+					<ul id="grid-pricing" class="w-full grid gap-6 lg:gap-8 mx-auto sm:grid-cols-2 xl:grid-cols-4">
+						{
+							pricing.map ((pricing)  =>
+								(
+								<li>
+									<article class="flex flex-col border-2 border-brand text-center text-[1rem] p-6 rounded-2xl shadow-2xl shadow-brand/20 lg:p-8 bg-white">
+										{pricing.data.popular &&(
+										<p class="mb-3"><span class="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-md text-xs uppercase font-semibold bg-brand/20">Populaire</span></p>
+										)} 
+										<h4 class="headline headline-4">{pricing.data.title}</h4>
+										<span class="mt-5 font-bold text-fs-3xl">
+											{pricing.data.price}
+											<span class="font-bold text-2xl -mr-2">€</span>
+										</span>
+										<p class="mt-2 text-[1rem]">{pricing.data.accroche}</p>
+
+										<div class="card-pricing__details w-full bg-brand/20 px-1 rounded-sm py-1">
+											<span class="text-neutral_gray">{pricing.data.description}</span>
+										</div>
+
+										<ul class="mt-6 space-y-2.5 text-sm">
+											<li class="flex space-x-2 items-start">
+												<Icon name="check-circle" class="w-4 h-4 text-brand bg-gray rounded-full flex-shrink-0" />
+												<span class="text-gray text-left leading-none">
+													{pricing.data.bienfait_1}
+												</span>
+											</li>
+											<li class="flex space-x-2 items-start">
+												<Icon name="check-circle" class="w-4 h-4 text-brand bg-gray rounded-full flex-shrink-0" />
+												<span class="text-gray text-left leading-none">
+													{pricing.data.bienfait_2}
+												</span>
+											</li>
+											<li class="flex space-x-2 items-start">
+												<Icon name="check-circle" class="w-4 h-4 text-brand bg-gray rounded-full flex-shrink-0" />
+												<span class="text-gray text-left leading-none">
+													{pricing.data.bienfait_3}
+												</span>
+											</li>
+										</ul>
+									</article>
+								</li>
+								)
+							)
+						}
+					</ul>
+					</div>
+			</div>
+		</section>
+
+		<!-- partners -->
+		<div class="section">
+			<div class="container">
+				<div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+					<div class="groupTitle space-y-1">
+						<span class="tagline">MCL présent sur vos évènements</span>
+						<h2 class="headline headline-h2">Ils nous font confiance</h2>
+					</div>
+					<div class="subheadline-wrapper w-full">
+						<p class="sub__headline text-fs-base">Rejoignez les entreprises qui agissent pour le bien-être de leurs collaborateurs</p>
+					</div>
+				</div>
+				<!-- Grid -->
+				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+					<!-- Card -->
+					<article class="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20">
+						<div class="aspect-auto max-h-64 flex flex-col justify-center items-center rounded-t-xl">
+							<Image 
+								src="/images/entreprise/logo-ministere_de_la_justice.svg"
+								alt="Logo - Ministère de la justice"
+								width={328}
+								height={256}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="p-4 md:p-6">
+							<h3 class="headline headline-h3 mb-2">
+							 	Tribunal de Fort-de-France
+							</h3>
+							<p>
+								Le tribunal de Fort-de-France à fait appel à nous pour apporter un moment de relaxation à ses usagers.
+							</p>
+						</div>
+					</article>
+
+					<article class="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20">
+						<div class="aspect-auto max-h-64 flex flex-col justify-center items-center rounded-t-xl">
+							<Image 
+							src="/images/entreprise/logo-transmartinique_1.png"
+							alt="Logo - TransMartinique"
+							width={328}
+							height={256}
+							class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="p-4 md:p-6">
+							<h3 class="headline headline-h4 mb-3">
+							 Course Trail La TransMartinique
+							</h3>
+							<p>
+								Nous avons répondu présent, lorsque l'association Manikou nous à proposer d'apaiser les corps sur 2 étapes de cette course de 134km.
+							</p>
+						</div>
+					</article>
+
+					<article class="group flex flex-col h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20">
+						<div class="aspect-auto max-h-64 flex flex-col justify-center items-center rounded-t-xl">
+							<Image 
+							src="/images/entreprise/logo-fdf.png"
+							alt="Logo - TransMartinique"
+							width={328}
+							height={256}
+							class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="p-4 md:p-6">
+							<h3 class="headline headline-h4 mb-3">
+							 	Ville de Fort-de-France
+							</h3>
+							<p>
+								Le personnel des crèches de Fort-de-France s'est vu invité à une séance d'initiation à la sophrologie.
+								Un moyen de les remercier pour leur engagement auprès des tout petits.
+							</p>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- MCL offre entreprise en images -->
+		<section class="section">
+			<div class="container">
+				<div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+					<div class="groupTitle space-y-1">
+						<span class="tagline">MCL se rend dans vos locaux</span>
+						<h2 class="headline headline-h2">MCL en prestations entreprise</h2>
+					</div>
+					<div class="subheadline-wrapper w-full">
+						<p class="sub__headline text-fs-base">Un échantillon de nos services en images</p>
+					</div>
+				</div>
+
+				<!-- Masonry Cards -->
+				<div class="grid px-6 md:grid-cols-3 space-y-6 gap-6 lg:gap-8 pt-12 lg:pt-16">
+					<article class="transform scale-110 -rotate-6 max-h-[528px] rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 bg-white">
+						<div class="aspect-auto">
+							<Image 
+								src="/images/entreprise/sophrologie_5.jpg"
+								alt="description"
+								width={384}
+								height={384}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="text-sm md:text-base text-gray p-4 overflow-hidden">
+							Initiation à la sophrologie pour le personnel des crèches de la ville de Fort-de-France.
+						</div>
+					</article>
+
+					<article class="max-h-96 rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 bg-white">
+						<div class="aspect-auto">
+							<Image 
+								src="/images/entreprise/transmartinique_1.jpg"
+								alt="description"
+								width={384}
+								height={384}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="text-sm md:text-base text-gray p-4 overflow-hidden">
+							Massage de récupération pour sportif de la TransMartinique.
+						</div>
+					</article>
+					<article class="transform scale-110 rotate-6 max-h-[528px] rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 bg-white">
+						<div class="aspect-auto">
+							<Image 
+								src="/images/entreprise/massage-uda_1.jpg"
+								alt="description"
+								width={384}
+								height={384}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="text-sm md:text-base text-gray p-4 overflow-hidden">
+							Massage sur chaise à l'Université des Antilles.
+						</div>
+					</article>
+					<article class="max-h-96 rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 bg-white">
+						<div class="aspect-auto">
+							<Image 
+								src="/images/entreprise/luxson_3.jpg"
+								alt="description"
+								width={384}
+								height={384}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="text-sm md:text-base text-gray p-4 overflow-hidden">
+							Relaxation sur ballon à l'Université des Antilles.
+						</div>
+					</article>
+					<article class="transform scale-110 -rotate-3 lg:rotate-3 rounded-2xl overflow-hidden shadow-2xl shadow-brand/20">
+						<div class="aspect-auto">
+							<Image 
+								src="/images/entreprise/tribunal.jpg"
+								alt="description"
+								width={384}
+								height={384}
+								class="w-full object-cover object-center"
+							/>
+						</div>
+						<div class="text-sm md:text-base text-gray bg-offwhite p-4 overflow-hidden">
+							Massage assis pour le personnel du tribunal de Fort-de-France.
+						</div>
+					</article>
+				</div>
+
+			</div>
+	</section>
+
+	 <!-- CTA -->
+	 <section class="section bg-brand">
+		<div class="container">
+			<div
+				class="relative z-10 overflow-hidden rounded-2xl py-6 bg-offwhite shadow shadow-dark/20 px-8 md:p-[70px]"
+			>
+				<div class="-mx-4 flex flex-wrap items-center">
+					<div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-left pb-12 lg:pb-16 lg:w-1/2">
+						<div class="groupTitle space-y-1">
+							<span class="tagline"></span>
+							<h2 class="headline headline-h2">MCL présent sur vos évènements</h2>
+						</div>
+						<div class="subheadline-wrapper w-full">
+							<p class="sub__headline text-base">Pour cela, il vous suffit de nous contacter afin d'obtenir réponse à vos questions et de mettre en place un plan d'action.</p>
+						</div>
+					</div>
+				<div class="w-full px-4 lg:w-1/2">
+					<div class="flex flex-wrap lg:justify-end gap-6">
+						<Button 
+							type='button'
+							role="link"
+							href='tel:+596 6 96 09 08 77'
+							label='Nous téléphoner'
+							icon={{
+								name:"phone-call",
+								side:"right"
+							}}
+							classes={'isFilled'}
+						/>
+						<Button 
+						type='button'
+						role="link"
+						href='mailto:bonjour@moncorpslibere.fr'
+						label='Nous envoyer un courriel'
+						icon={{
+							name:"envelope-simple",
+							side:"right"
+						}}
+						classes={'isGhost'}
+					/>
+					</div>
+				</div>
+				</div>
+		
+				<div>
+					<span class="absolute top-0 left-0 z-[-1]">
+						<svg
+						width="189"
+						height="162"
+						viewBox="0 0 189 162"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						>
+						<ellipse
+							cx="16"
+							cy="-16.5"
+							rx="173"
+							ry="178.5"
+							transform="rotate(180 16 -16.5)"
+							fill="url(#paint0_linear)"
+						/>
+						<defs>
+							<linearGradient
+							id="paint0_linear"
+							x1="-157"
+							y1="-107.754"
+							x2="98.5011"
+							y2="-106.425"
+							gradientUnits="userSpaceOnUse"
+							>
+							<stop stop-color="white" stop-opacity="0.07" />
+							<stop offset="1" stop-color="white" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+						</svg>
+					</span>
+					<span class="absolute bottom-0 right-0 z-[-1]">
+						<svg
+						width="191"
+						height="208"
+						viewBox="0 0 191 208"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						>
+						<ellipse
+							cx="173"
+							cy="178.5"
+							rx="173"
+							ry="178.5"
+							fill="url(#paint0_linear)"
+						/>
+						<defs>
+							<linearGradient
+							id="paint0_linear"
+							x1="-3.27832e-05"
+							y1="87.2457"
+							x2="255.501"
+							y2="88.5747"
+							gradientUnits="userSpaceOnUse"
+							>
+							<stop stop-color="white" stop-opacity="0.07" />
+							<stop offset="1" stop-color="white" stop-opacity="0" />
+							</linearGradient>
+						</defs>
+						</svg>
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    </Main>
+
+</Layout>

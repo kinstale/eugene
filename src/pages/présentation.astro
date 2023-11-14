@@ -1,0 +1,257 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+//import components
+import Main from '../components/Main.astro';
+import Button from '@components/Button.astro';
+import Link from '@components/Link.astro';
+import ChecklistItem from '@components/ChecklistItem.astro';
+import Gallery from '@components/Gallery.astro';
+
+// import collections
+import { getCollection } from "astro:content";
+
+//fetching collection pricing
+const pricing = await getCollection('pricing', ({ data }) => {
+  return data.category === "entreprise";
+});
+
+---
+
+<Layout title="MCL | Offre entreprise" >
+    <Main>
+      <section class="overflow-hidden mt-36 pb-20">
+        <div class="container mx-auto">
+          <div class="grid md:grid-cols-2 xl:grid-cols-12 items-center gap-8 xl:gap-10 2xl:gap-12">
+            <div class="w-full px-4 xl:col-span-6">
+              <div class="mt-10 lg:mt-0">
+                <span class="tagline">
+                  Jeune entreprise créé à l'aube de l'année 2021.
+                </span>
+                <h1 class="headline headline-h1">
+                  Mon corps libéré
+                </h1>
+                <p class="text-fs-base text-gray-600 mb-12">
+                  Chez MCL on croit que faire le choix conscient du bien-être est la clé du bonheur.
+                  Nous pensons également qu'une offre de relaxation individuelle et collective peut être proposée en Martinique.
+                  De cette réflexion est né Mon Corps Libéré.
+                </p>
+                
+              </div>
+            </div>
+            <div class="w-full px-4 xl:col-start-8 xl:col-span-7">
+              <div class="-mx-3 flex items-center sm:-mx-4">
+                <div class="w-full px-3 sm:px-4 xl:w-1/2">
+                  <div class="py-3 sm:py-4">
+                    <Image 
+                      src="/images/presentation/fête-des-mères_1.jpg"
+                      alt="un travail d'équipe"
+                      width={576}
+                      height={576}
+                      class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+                    />
+                  </div>
+                  <div class="py-3 sm:py-4">
+                    <Image 
+                      src="/images/presentation/sophrologie_5.jpg"
+                      alt="massage assis"
+                      width={576}
+                      height={576}
+                      class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+                    />
+                  </div>
+                </div>
+                <div class="w-full px-3 sm:px-4 xl:w-1/2">
+                  <div class="relative z-10 my-4">
+                    <Image 
+                      src="/images/presentation/transmartinique_1.jpg"
+                      alt="séance de sophrologie en groupe et en plein air"
+                      width={576}
+                      height={576}
+                      class="w-full object-cover object-center rounded-2xl aspect-[4/5]"
+                    />
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      <!-- mission statement -->
+      <div class="section bg-brand/20">
+        <div class="container">
+          <div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+            <div class="groupTitle space-y-1">
+              <span class="tagline">Ce qui nous caractérise</span>
+              <h2 class="headline headline-h2">Notre mission et nos valeurs</h2>
+            </div>
+            <div class="subheadline-wrapper w-full">
+              <p class="sub__headline text-fs-base">Nous sommes attachés à certains aspects</p>
+            </div>
+          </div>
+
+          <div class="space-y-16">
+            <div class="mt-5 w-full columns-2">
+              <p class="text-left">
+                  De nos jours, on peut avoir l'impression que le monde bouge plus vite que nous.
+                  Nous sommes constament sollicité et hyperstimulé. Parfois cette sollicitation constante se traduit par un manque de mouvement et une sur-solliciation cérébrale.
+                  MCL souhaite apporter un moment de recul, de relachement, à tout un chacun avec son offre de relaxation, afin que ses clients soit reconnectés à leur corps et leur conscience.
+              </p>
+          </div>
+  
+            <div class="grid lg:grid-cols-3 items-center gap-6 lg:gap-8">
+              <!-- Card -->
+              <article class="group flex gap-y-6 w-full h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 p-6">    
+                <div>
+                  <div class="">
+                    <h3 class="headline headline-4 mb-3">Le respect</h3>
+                    <p class="text-gray">Nous faisons en sorte que la personne massée se sente en confiance, écoutée et respectée.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="group flex gap-y-6 w-full h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 p-6">    
+                <div>
+                  <div class="">
+                    <h3 class="headline headline-4 mb-3">Le partage</h3>
+                    <p class="text-gray">Nous appliquons le partage de connaissance, la diffusion de conseils pour que la personne massée puisse continuée, à prendre soin d'elle une fois la prestation terminée.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="group flex gap-y-6 w-full h-full bg-white rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 p-6">    
+                <div>
+                  <div class="">
+                    <h3 class="headline headline-4 mb-3">La formation continue</h3>
+                    <p class="text-gray">C'est un moyen pour nous de rester alerte et professionnel.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="section bg-brand-500/20">
+        <div class="container">
+          <div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+            <div class="groupTitle space-y-1">
+              <span class="tagline">Améliorer la qualité de vie au travail</span>
+              <h2 class="headline headline-h2">Qui sommes-nous?</h2>
+            </div>
+            <div class="subheadline-wrapper w-full">
+              <p class="sub__headline text-base">Un solopreneur, parfois accompagné.</p>
+            </div>
+          </div>
+          
+          <div class="services grid gap-14">
+            <!-- Jean-Philippe -->
+            <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap:16 ">
+              
+              <div class="flex md:justify-center">
+                <Image
+                  class="rounded-2xl object-cover object-left-top max-h-[476px] overflow-hidden shadow-2xl shadow-brand/20"
+                  width={576}
+                  height={576}
+                  src="/images/presentation/jp_portrait_2.jpg"
+                  alt="Image Description"
+                >
+              </div>
+              
+              <div class="mt-5 sm:mt-10 lg:mt-0">
+                <div class="space-y-6 sm:space-y-8">
+                <!-- Title -->
+                <div class="space-y-2 md:space-y-4">
+                  <h3 class="headline headline-h3">
+                    Jean-Philippe VOLNY-ANNE - Votre praticien bien-être
+                  </h3>
+                  <p>
+                    Je suis Masso-kinésithérapeute diplômé de l'école Kiné-Concept à Montréal. J'ai étudié le massage suédois cinétique, l'introduction à la faciathérapie intégrée, les mobilisations passives, le massage tissu profond intégré niveau I, le Lomi-Atsu.
+                  </p>
+                  <p>
+                    J'ai étudié 2 ans à l'Académie Sutherland d'osthéopathie du Québec, validé par un diplôme de somathèrapie.
+                  </p>
+                </div>
+                
+                <p>Pour le retour au pays j'ai fait ces choix:</p>
+            
+                <!-- List -->
+                <ul role="list" class="space-y-2 sm:space-y-4">
+                  <ChecklistItem
+                    label='Le massage de détente'
+                  />
+                  <ChecklistItem
+                    label="L'entreprenariat"
+                  />
+                  <ChecklistItem
+                    label="La famille, la Martinique"
+                  />
+            
+                </ul>
+                <!-- End List -->
+                </div>
+              </div>
+            </div>
+
+            <!-- partners -->
+            <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 lg:gap:16 ">
+
+              <div class="mt-5 sm:mt-10 lg:mt-0">
+                <div class="space-y-6 sm:space-y-8">
+                <!-- Title -->
+                  <div class="space-y-2 md:space-y-4">
+                    <h3 class="headline headline-h3">
+                      La fine équipe sur les évènements
+                    </h3>
+                    <p>
+                      Sur les grands événements, MCL s’associe, parfois, à d’autres pour le bien-être de tous.
+                    </p>
+
+                    <p>C'est avec grand plaisir que nous travaillons avec <span class="font-medium">JMC & Santé</span> (à sa tête Jean-Michel CRIQUET) et l'association <span class="font-medium">Wellness Team 2s</span>(président : Daniel VESIR)
+                    <br> Quand la taille de la prestation le justifie (plus d'une douzaine de personnes à masser en 4 heures, par exemple), MCL s'associe à l'association WT2S sur des blocks de 4 heures au tarif de 350€/HT par praticien présent (de 2 à 8 praticiens).
+                    </p>
+
+                  </div>
+                </div>
+
+              </div>
+            
+              <div class="flex md:justify-center">
+                <Image
+                  class="rounded-2xl object-cover object-left-top max-h-[476px] overflow-hidden shadow-2xl shadow-brand/20"
+                  width={576}
+                  height={576}
+                  src="/images/presentation/team-events.jpg"
+                  alt="Image Description"
+                >
+              </div> 
+
+            </div>
+          </div>
+        </div>			
+      </section>
+
+      <!-- Gallery -->
+      <section class="section">
+        <div class="container">
+          <div class="sectionTitle w-full mx-auto max-w-prose space-y-4 text-center pb-12 lg:pb-16">
+            <div class="groupTitle space-y-1">
+              <span class="tagline">Ils ont pris un temps pour eux</span>
+              <h2 class="headline headline-h2">Notre galerie d'images </h2>
+            </div>
+            <div class="subheadline-wrapper w-full">
+              <p class="sub__headline text-base">La relaxation façon MCL par l'exemple.</p>
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <Gallery />
+        </div>
+      </section>
+    </Main>
+
+</Layout>

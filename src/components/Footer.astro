@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+//import components
+import { Icon } from 'astro-icon';
+import Link from '@components/Link.astro';
+---
+<footer class="section py-6 bg-dark text-offwhite text-fs-small">
+    <div class="container">
+        <!-- Grid -->
+      <div class="text-center grid justify-center">
+        <div class="logo-wrapper w-full flex justify-center">
+          <a 
+              href="/"
+              aria-label="lien vers la page d'accueil"
+              class="flex-none"
+          >
+              <Image
+                  src="/logo-mcl-short.svg"
+                  alt="logo - MCL" 
+                  width={60}
+                  height={60}
+                  class="logo__img block w-16">
+          </a>
+        </div>
+          <div class="mt-3 space-y-2">
+            <p>© Mon Corps Libéré. 2023 - Tous droits réservés - <Link role='link' label="Mentions légales" href='/' /> </p>
+            <p>Design et intégration par <Link role='link' label="2xxandco" href='/' />
+          </div>
+      
+          <!-- Social Brands -->
+          <div class="mt-3 space-x-2">
+            <a class="inline-flex justify-center items-center text-center p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offwhite focus:ring-offset-1 focus:ring-offset-offwhite transition" href="#">
+              <Icon 
+                    name="facebook-logo"
+                    class="w-6 text-brand"
+              />
+            </a>
+            <a class="inline-flex justify-center items-center text-center p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1 focus:ring-offset-brand transition" href="#">
+                <Icon 
+                    name="instagram-logo"
+                    class="w-6 text-brand"
+                />
+            <a/>
+          </div>
+        </div>
+      <!-- End Grid -->
+    </div>
+  </footer>

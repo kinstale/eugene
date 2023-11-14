@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets'
+
+/* import collections */
+import { getCollection } from "astro:content";
+
+//fetching collection gallery for images
+const galleryImg = await getCollection('gallery', ({ data }) => {
+  return data.mediaType === "Image";
+});
+
+//fetching collection gallery for video
+const galleryVideo = await getCollection('gallery', ({ data }) => {
+  return data.mediaType === "Vidéo";
+});
+
+---
+
+<div class="grid-wrapper w-full grid justify-center mt-14 space-y-14">
+    <ul id="grid-gallery" class="w-full grid gap-6 sm:gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    
+        {
+            galleryImg.map ((galleryImg)  =>
+                (
+                    <li>
+                        <article class="thumbnail rounded-2xl overflow-hidden shadow-2xl shadow-brand/20dow-brand bg-white">
+                            <Image
+                                src={galleryImg.data.image}
+                                width="1200"
+                                height="750"
+                                alt={galleryImg.data.alt}
+                                class=""
+                            />
+                            <div class="content p-5">
+                                <h3 class="text-fs_medium font-medium mb-2">{galleryImg.data.title}</h3>
+                                <p class="text-gray-300">{galleryImg.data.description}</p>
+                            </div>
+                        </article>
+                    </li>
+                )
+            )
+        }
+    </ul>
+    <ul id="grid-gallery" class="w-full grid gap-6 sm:gap-8 mx-auto sm:grid-cols-2 mad:grid-cols-3 2xl:grid-cols-5">
+    
+        {
+            galleryVideo.map ((galleryVideo)  =>
+                (
+                    <li>
+                        <article class="thumbnail rounded-2xl overflow-hidden shadow-2xl shadow-brand/20 dow-brand bg-white">
+                            <iframe
+                                src={galleryVideo.data.video}
+                                class="aspect-auto h-96 w-full bg-dark"
+                            />
+                            <div class="content p-6">
+                                <h3 class="text-fs_medium font-medium mb-2">{galleryVideo.data.title}</h3>
+                                <p class="text-gray-300">{galleryVideo.data.description}</p>
+                            </div>
+                        </article>
+                    </li>
+                )
+            )
+        }
+    </ul>
+</div>

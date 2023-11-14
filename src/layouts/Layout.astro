@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+
+//import components
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const {
+	title = 'Monc corps libéré',
+	description = 'Votre rendez-vous bien-être en Martinique',
+	image="/images/massage_1.jpg"
+} = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+	</head>
+	<body class="min-h-screen flex flex-col bg-offwhite text-gray text-fs-base relative">
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0" nonce="CQaCu4da"></script>
+		<Header />
+		<slot />
+		<Footer />
+
+		<script src="../../node_modules/preline/dist/preline.js"></script>
+
+	</body>
+</html>
