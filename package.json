@@ -1,7 +1,7 @@
 {
-  "name": "mcl-v1",
-  "type": "module",
+  "name": "@example/blog",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "serve dist/",
@@ -10,15 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.0.3",
-    "@astrojs/tailwind": "^5.0.1",
-    "@astrojs/vercel": "^5.0.2",
-    "astro-icon": "^0.8.1",
-    "preline": "^1.9.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-tailwindcss": "^0.5.5",
-    "serve": "^14.2.1",
-    "tailwindcss": "^3.0.24"
+    "astro": "^3.0.0",
+    "@astrojs/mdx": "^1.1.3",
+    "@astrojs/sitemap": "^3.0.2",
+    "serve": "^14.2.1"
   }
 }
